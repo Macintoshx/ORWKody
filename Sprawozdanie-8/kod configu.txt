@@ -1,0 +1,11 @@
+'authClientCollection' => [
+			'class' => 'yii\authclient\Collection',
+			'clients' => [
+				'facebook' => [
+					'class' => 'yii\authclient\clients\Facebook',
+					'authUrl' => 'https://www.facebook.com/dialog/oauth?display=popup',
+					'clientId' => '1651692388436509',
+					'clientSecret' => 'ac82a22f5c0c203e5d3fdb3720116a1d',
+				],
+			],
+		],

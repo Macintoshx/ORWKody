@@ -1,0 +1,25 @@
+public function actions()
+{
+	return [
+		'error' => [
+			'class' => 'yii\web\ErrorAction',
+		],
+		'captcha' => [
+			'class' => 'yii\captcha\CaptchaAction',
+			'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+		],
+		'auth' => [
+			'class' => 'yii\authclient\AuthAction',
+			'successCallback' => [$this, 'oAuthSuccess'],
+		],
+	];
+}
+
+public function oAuthSuccess($client)
+{
+	$userAttributes = $client->getUserAttributes();
+	UserService::OAuthLogin($userAttributes['email'], $userAttributes['name'], $userAttributes['id']);
+	$this->redirect(['site/index']);
+}
+	
+	
